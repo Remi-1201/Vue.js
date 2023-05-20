@@ -28,6 +28,13 @@ function emailValidation() {
     data: {
       // index.htmlには<p class="alert_color">{{ errorMessage }}</p> 
       errorMessage: 'Eメールが一致しません',
+      // 以下を追加
+      formData: {
+        name: '',
+        email: '',
+        emailConfirm: '',
+        content: '',
+      },
     }
   })
 };

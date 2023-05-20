@@ -13,20 +13,24 @@
         <p>お問い合わせ</p>
       </div>
       <!-- p要素を追加 -->
-      <p class="alert_color">{{ errorMessage }}</p>
+      <!-- v-if="false"を追加 -->
+      <p class="alert_color" v-if="formData.email !== formData.emailConfirm">{{ errorMessage }}</p> <!-- 変更 -->
       <form action="#" method="POST" id="form">
         <table class="contact" id="table">
           <tr class="contact_line">
             <td class="contact_sign"><label for="name">お名前</label></td>
-            <td class="contact_input"><input type="text" name="name" id="name"></td>
+            <td class="contact_input"><input type="text" name="name" id="name">
+              <!-- v-model="formData.name" を追加 -->
+              <input v-model="formData.name" type="text" name="name" id="name">
+            </td>
           </tr>
           <tr class="contact_line">
             <td class="contact_sign"><label for="name">Eメール</label></td>
-            <td class="contact_input"><input type="email" name="email" id="email"></td>
+            <td class="contact_input"><input v-model="formData.email" type="email" name="email" id="email"></td> <!-- 変更 -->
           </tr>
           <tr class="contact_line">
             <td class="contact_sign"><label for="name">Eメール(確認)</label></td>
-            <td class="contact_input"><input type="email" name="email_confirm" id="email_confirm"></td>
+            <td class="contact_input"><input v-model="formData.emailConfirm" type="email" name="email_confirm" id="email_confirm"></td> <!-- 変更 -->
           </tr>
           <tr class="contact_content" id="content_field">
             <td class="contact_sign"><label for="content">内容</label></td>
@@ -38,6 +42,11 @@
           <button type="submit" class="contact_btn submit_btn">送信する</button>
         </div>
       </form>
+      <!-- 入力内容を表示するエリアを作成 -->
+      <section class="contact_confirm">
+        <h2>ご記入内容の確認</h2>
+        <p><span class="bold">お名前:　</span><span>{{ formData.name }}</span></p>
+      </section>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script type="text/javascript" src="javascripts/validation.js"></script>
