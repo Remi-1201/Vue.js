@@ -51,9 +51,7 @@
               EメールフォームとEメール(確認)フォームを入力してください
             </p>
             <!-- v-ifの条件に当てはまらず、値が異なっている場合はエラーメッセージを表示 -->
-            <p v-else-if="formData.email !== formData.emailConfirm" class="alert_color">
-              {{ errorMessage }}
-            </p>
+            <p class="alert_color" v-else-if="!validation">{{ errorMessage }}</p>
             <!-- それ以外の場合（入力されており、かつ値が同じ場合）のメッセージ -->
             <p v-else>正しく入力できています</p>            
           </tr>

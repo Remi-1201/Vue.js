@@ -50,7 +50,13 @@ function emailValidation() {
       openCheckArea() {
         this.confirmView = true;
       },
-    }
+    },
+    // 以下にcomputedを追加
+    computed: {
+      validation: function() {
+        return this.formData.email === this.formData.emailConfirm;
+      },
+    },
   })
 };
 
