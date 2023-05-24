@@ -29,7 +29,7 @@
             <td class="contact_sign"><label for="name">地域</label></td>
             <td class="contact_input">
               <select>
-                <option v-for="(region, index) in regions">{{ index + 1 }}. {{ region }}</option>
+                <option v-for="(region, index) in regions" :key="region.id">{{ region.id }} {{ region.name }}</option>
               </select>
             </td>
           </tr>

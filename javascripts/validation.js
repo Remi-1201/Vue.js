@@ -37,9 +37,9 @@ function emailValidation() {
       },
       // 以下を追加
       regions: [
-        '東北',
-        '関東',
-        '関西'
+        { id: 1, name: '東北' } ,
+        { id: 2, name: '関東' } ,
+        { id: 3, name: '関西' } 
       ]
     }
   })
