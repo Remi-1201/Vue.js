@@ -64,13 +64,18 @@
         </table>
         <div class="contact_btn_area">
           <button type="reset" class="contact_btn reset_btn">リセット</button>
-          <button type="submit" class="contact_btn submit_btn">送信する</button>
+          <button @click.prevent="confirmView = true" class="contact_btn submit_btn">確認</button>
         </div>
       </form>
       <!-- 入力内容を表示するエリアを作成 -->
-      <section class="contact_confirm">
+      <!-- v-if="confirmView"を追加 -->
+      <section v-if="confirmView" class="contact_confirm">
         <h2>ご記入内容の確認</h2>
         <p><span class="bold">お名前:　</span><span>{{ formData.name }}</span></p>
+        <p><span class="bold">地域:　</span><span>{{ formData.region }}</span></p>
+        <p><span class="bold">Eメール:　</span><span>{{ formData.email }}</span></p>
+        <p><span class="bold">Eメール(確認):　</span><span>{{ formData.emailConfirm }}</span></p>
+        <p><span class="bold">内容:　</span><span>{{ formData.content }}</span></p>
       </section>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

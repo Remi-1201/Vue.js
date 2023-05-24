@@ -34,13 +34,16 @@ function emailValidation() {
         email: '',
         emailConfirm: '',
         content: '',
+        region: '',
       },
       // 以下を追加
       regions: [
         { id: 1, name: '東北' } ,
         { id: 2, name: '関東' } ,
         { id: 3, name: '関西' } 
-      ]
+      ], // カンマを追加
+      // 以下を追加
+      confirmView: false,
     }
   })
 };
