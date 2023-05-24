@@ -35,6 +35,12 @@ function emailValidation() {
         emailConfirm: '',
         content: '',
       },
+      // 以下を追加
+      regions: [
+        '東北',
+        '関東',
+        '関西'
+      ]
     }
   })
 };

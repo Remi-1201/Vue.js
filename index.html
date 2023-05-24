@@ -24,6 +24,16 @@
               <input v-model="formData.name" type="text" name="name" id="name">
             </td>
           </tr>
+          <!-- 以下を追加 -->
+          <tr class="contact_line">
+            <td class="contact_sign"><label for="name">地域</label></td>
+            <td class="contact_input">
+              <select>
+                <option v-for="(region, index) in regions">{{ index + 1 }}. {{ region }}</option>
+              </select>
+            </td>
+          </tr>
+          <!-- 追加ここまで -->
           <tr class="contact_line">
             <td class="contact_sign"><label for="name">Eメール</label></td>
             <td class="contact_input">
