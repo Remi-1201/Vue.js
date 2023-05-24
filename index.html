@@ -37,14 +37,15 @@
           <tr class="contact_line">
             <td class="contact_sign"><label for="name">Eメール</label></td>
             <td class="contact_input">
-              <!-- v-bind:class="{ alert_bg: formData.email !== formData.emailConfirm }"を追加 -->
-              <input v-bind:class="{ alert_bg: formData.email !== formData.emailConfirm }" v-model="formData.email" type="email" name="email" id="email">
-            </td> <!-- 変更 -->
+              <!-- 要件3の改修 -->
+              <input v-model="formData.email" :class="errorClass" type="email" name="email" id="email">
+            </td> 
           </tr>
           <tr class="contact_line">
             <td class="contact_sign"><label for="name">Eメール(確認)</label></td>
             <td class="contact_input">
-              <input v-model="formData.emailConfirm" type="email" name="email_confirm" id="email_confirm">
+              <!-- 要件3の改修 -->
+              <input v-model="formData.emailConfirm" :class="errorClass" type="email" name="email_confirm" id="email_confirm">
             </td> 
             <!-- formData.emailの値が空（未入力）またはformData.emailConfirmの値が空（未入力）の場合は入力を促すメッセージを表示 -->
             <p v-if="formData.email === '' || formData.emailConfirm === ''" >

@@ -48,14 +48,30 @@ function emailValidation() {
     // 以下を追加
     methods: {
       openCheckArea() {
+        // メールのエラー表示がなされている場合は
+        //「確認」ボタンをクリックしても確認エリアを表示しないようにする
+        if (!this.validation) return false;
         this.confirmView = true;
+        // 実行する前に、validationの値を確認し、falseの場合は中断する
       },
+      closeCheckArea() {
+        this.confirmView = false;
+      }
     },
-    // 以下にcomputedを追加
     computed: {
+      // 未入力であった場合に、
+      // Eメール入力フォームと確認フォームの値の評価をせずにtrueを返す
       validation: function() {
-        return this.formData.email === this.formData.emailConfirm;
+        return this.formData.email === '' || 
+          this.formData.emailConfirm === '' || 
+          this.formData.email === this.formData.emailConfirm
       },
+      // errorClassは、validationの値を確認し、
+      // falseの場合のみ “alert_bg” というclassを返却します。
+      // これにより、HTML側では、errorClassを設定すれば良いだけになります。
+      errorClass: function() {
+        return this.validation ? false : 'alert_bg';
+      }
     },
   })
 };
