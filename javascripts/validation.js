@@ -44,6 +44,12 @@ function emailValidation() {
       ], // カンマを追加
       // 以下を追加
       confirmView: false,
+    },
+    // 以下を追加
+    methods: {
+      openCheckArea() {
+        this.confirmView = true;
+      },
     }
   })
 };
